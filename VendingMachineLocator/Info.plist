@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>GoogleSignIn</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.1021109890304-dm93f3c3u24vn53smohhi4rqvm2if0ua</string>
+			</array>
+		</dict>
+	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>自動販売機の写真を撮影するためにカメラへのアクセスが必要です</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>自動販売機の画像を選択するためにフォトライブラリへのアクセスが必要です</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>カメラ機能でビデオ録画時にマイクへのアクセスが必要です</string>
+	<!-- 個人開発者アカウント対応：iCloudとSign in with Apple機能を無効化 -->
+</dict>
+</plist>

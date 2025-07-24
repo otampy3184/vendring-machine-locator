@@ -1,0 +1,686 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		104CAAF52E30E59E00C81499 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 104CAAF42E30E59E00C81499 /* FirebaseAuth */; };
+		104CAAF72E30E59E00C81499 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 104CAAF62E30E59E00C81499 /* FirebaseFirestore */; };
+		104CAAF92E30E59E00C81499 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 104CAAF82E30E59E00C81499 /* FirebaseFirestoreSwift */; };
+		104CAAFC2E30E5C200C81499 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 104CAAFB2E30E5C200C81499 /* GoogleSignIn */; };
+		104CAB022E30F01700C81499 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 104CAB012E30F01700C81499 /* FirebaseStorage */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		104CAA802E30DD2600C81499 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 104CAA662E30DD2500C81499 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 104CAA6D2E30DD2500C81499;
+			remoteInfo = VendingMachineLocator;
+		};
+		104CAA8A2E30DD2700C81499 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 104CAA662E30DD2500C81499 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 104CAA6D2E30DD2500C81499;
+			remoteInfo = VendingMachineLocator;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		104CAA6E2E30DD2500C81499 /* VendingMachineLocator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineLocator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		104CAA7F2E30DD2600C81499 /* VendingMachineLocatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineLocatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		104CAA892E30DD2700C81499 /* VendingMachineLocatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineLocatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		104CAAFE2E30E81700C81499 /* Exceptions for "VendingMachineLocator" folder in "VendingMachineLocator" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 104CAA6D2E30DD2500C81499 /* VendingMachineLocator */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		104CAA702E30DD2500C81499 /* VendingMachineLocator */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				104CAAFE2E30E81700C81499 /* Exceptions for "VendingMachineLocator" folder in "VendingMachineLocator" target */,
+			);
+			path = VendingMachineLocator;
+			sourceTree = "<group>";
+		};
+		104CAA822E30DD2600C81499 /* VendingMachineLocatorTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = VendingMachineLocatorTests;
+			sourceTree = "<group>";
+		};
+		104CAA8C2E30DD2700C81499 /* VendingMachineLocatorUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = VendingMachineLocatorUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		104CAA6B2E30DD2500C81499 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				104CAAF52E30E59E00C81499 /* FirebaseAuth in Frameworks */,
+				104CAAFC2E30E5C200C81499 /* GoogleSignIn in Frameworks */,
+				104CAAF72E30E59E00C81499 /* FirebaseFirestore in Frameworks */,
+				104CAB022E30F01700C81499 /* FirebaseStorage in Frameworks */,
+				104CAAF92E30E59E00C81499 /* FirebaseFirestoreSwift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		104CAA7C2E30DD2600C81499 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		104CAA862E30DD2700C81499 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		104CAA652E30DD2500C81499 = {
+			isa = PBXGroup;
+			children = (
+				104CAA702E30DD2500C81499 /* VendingMachineLocator */,
+				104CAA822E30DD2600C81499 /* VendingMachineLocatorTests */,
+				104CAA8C2E30DD2700C81499 /* VendingMachineLocatorUITests */,
+				104CAA6F2E30DD2500C81499 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		104CAA6F2E30DD2500C81499 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				104CAA6E2E30DD2500C81499 /* VendingMachineLocator.app */,
+				104CAA7F2E30DD2600C81499 /* VendingMachineLocatorTests.xctest */,
+				104CAA892E30DD2700C81499 /* VendingMachineLocatorUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		104CAA6D2E30DD2500C81499 /* VendingMachineLocator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 104CAA932E30DD2700C81499 /* Build configuration list for PBXNativeTarget "VendingMachineLocator" */;
+			buildPhases = (
+				104CAA6A2E30DD2500C81499 /* Sources */,
+				104CAA6B2E30DD2500C81499 /* Frameworks */,
+				104CAA6C2E30DD2500C81499 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				104CAA702E30DD2500C81499 /* VendingMachineLocator */,
+			);
+			name = VendingMachineLocator;
+			packageProductDependencies = (
+				104CAAF42E30E59E00C81499 /* FirebaseAuth */,
+				104CAAF62E30E59E00C81499 /* FirebaseFirestore */,
+				104CAAF82E30E59E00C81499 /* FirebaseFirestoreSwift */,
+				104CAAFB2E30E5C200C81499 /* GoogleSignIn */,
+				104CAB012E30F01700C81499 /* FirebaseStorage */,
+			);
+			productName = VendingMachineLocator;
+			productReference = 104CAA6E2E30DD2500C81499 /* VendingMachineLocator.app */;
+			productType = "com.apple.product-type.application";
+		};
+		104CAA7E2E30DD2600C81499 /* VendingMachineLocatorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 104CAA962E30DD2700C81499 /* Build configuration list for PBXNativeTarget "VendingMachineLocatorTests" */;
+			buildPhases = (
+				104CAA7B2E30DD2600C81499 /* Sources */,
+				104CAA7C2E30DD2600C81499 /* Frameworks */,
+				104CAA7D2E30DD2600C81499 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				104CAA812E30DD2600C81499 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				104CAA822E30DD2600C81499 /* VendingMachineLocatorTests */,
+			);
+			name = VendingMachineLocatorTests;
+			packageProductDependencies = (
+			);
+			productName = VendingMachineLocatorTests;
+			productReference = 104CAA7F2E30DD2600C81499 /* VendingMachineLocatorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		104CAA882E30DD2700C81499 /* VendingMachineLocatorUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 104CAA992E30DD2700C81499 /* Build configuration list for PBXNativeTarget "VendingMachineLocatorUITests" */;
+			buildPhases = (
+				104CAA852E30DD2700C81499 /* Sources */,
+				104CAA862E30DD2700C81499 /* Frameworks */,
+				104CAA872E30DD2700C81499 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				104CAA8B2E30DD2700C81499 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				104CAA8C2E30DD2700C81499 /* VendingMachineLocatorUITests */,
+			);
+			name = VendingMachineLocatorUITests;
+			packageProductDependencies = (
+			);
+			productName = VendingMachineLocatorUITests;
+			productReference = 104CAA892E30DD2700C81499 /* VendingMachineLocatorUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		104CAA662E30DD2500C81499 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					104CAA6D2E30DD2500C81499 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					104CAA7E2E30DD2600C81499 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 104CAA6D2E30DD2500C81499;
+					};
+					104CAA882E30DD2700C81499 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 104CAA6D2E30DD2500C81499;
+					};
+				};
+			};
+			buildConfigurationList = 104CAA692E30DD2500C81499 /* Build configuration list for PBXProject "VendingMachineLocator" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 104CAA652E30DD2500C81499;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				104CAAF32E30E59E00C81499 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				104CAAFA2E30E5C200C81499 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 104CAA6F2E30DD2500C81499 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				104CAA6D2E30DD2500C81499 /* VendingMachineLocator */,
+				104CAA7E2E30DD2600C81499 /* VendingMachineLocatorTests */,
+				104CAA882E30DD2700C81499 /* VendingMachineLocatorUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		104CAA6C2E30DD2500C81499 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		104CAA7D2E30DD2600C81499 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		104CAA872E30DD2700C81499 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		104CAA6A2E30DD2500C81499 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		104CAA7B2E30DD2600C81499 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		104CAA852E30DD2700C81499 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		104CAA812E30DD2600C81499 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 104CAA6D2E30DD2500C81499 /* VendingMachineLocator */;
+			targetProxy = 104CAA802E30DD2600C81499 /* PBXContainerItemProxy */;
+		};
+		104CAA8B2E30DD2700C81499 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 104CAA6D2E30DD2500C81499 /* VendingMachineLocator */;
+			targetProxy = 104CAA8A2E30DD2700C81499 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		104CAA912E30DD2700C81499 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		104CAA922E30DD2700C81499 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		104CAA942E30DD2700C81499 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = VendingMachineLocator/VendingMachineLocator.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"VendingMachineLocator/Preview Content\"";
+				DEVELOPMENT_TEAM = X9546U79MF;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = VendingMachineLocator/Info.plist;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.vendingMachineLocator.VendingMachineLocator;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Debug;
+		};
+		104CAA952E30DD2700C81499 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = VendingMachineLocator/VendingMachineLocator.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"VendingMachineLocator/Preview Content\"";
+				DEVELOPMENT_TEAM = X9546U79MF;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = VendingMachineLocator/Info.plist;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.vendingMachineLocator.VendingMachineLocator;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Release;
+		};
+		104CAA972E30DD2700C81499 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X9546U79MF;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.vendingMachineLocator.VendingMachineLocatorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VendingMachineLocator.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/VendingMachineLocator";
+				XROS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Debug;
+		};
+		104CAA982E30DD2700C81499 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X9546U79MF;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.vendingMachineLocator.VendingMachineLocatorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VendingMachineLocator.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/VendingMachineLocator";
+				XROS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Release;
+		};
+		104CAA9A2E30DD2700C81499 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X9546U79MF;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.vendingMachineLocator.VendingMachineLocatorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_TARGET_NAME = VendingMachineLocator;
+				XROS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Debug;
+		};
+		104CAA9B2E30DD2700C81499 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X9546U79MF;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.vendingMachineLocator.VendingMachineLocatorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_TARGET_NAME = VendingMachineLocator;
+				XROS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		104CAA692E30DD2500C81499 /* Build configuration list for PBXProject "VendingMachineLocator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				104CAA912E30DD2700C81499 /* Debug */,
+				104CAA922E30DD2700C81499 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		104CAA932E30DD2700C81499 /* Build configuration list for PBXNativeTarget "VendingMachineLocator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				104CAA942E30DD2700C81499 /* Debug */,
+				104CAA952E30DD2700C81499 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		104CAA962E30DD2700C81499 /* Build configuration list for PBXNativeTarget "VendingMachineLocatorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				104CAA972E30DD2700C81499 /* Debug */,
+				104CAA982E30DD2700C81499 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		104CAA992E30DD2700C81499 /* Build configuration list for PBXNativeTarget "VendingMachineLocatorUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				104CAA9A2E30DD2700C81499 /* Debug */,
+				104CAA9B2E30DD2700C81499 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		104CAAF32E30E59E00C81499 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.24.0;
+			};
+		};
+		104CAAFA2E30E5C200C81499 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		104CAAF42E30E59E00C81499 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 104CAAF32E30E59E00C81499 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		104CAAF62E30E59E00C81499 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 104CAAF32E30E59E00C81499 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		104CAAF82E30E59E00C81499 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 104CAAF32E30E59E00C81499 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		104CAAFB2E30E5C200C81499 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 104CAAFA2E30E5C200C81499 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		104CAB012E30F01700C81499 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 104CAAF32E30E59E00C81499 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 104CAA662E30DD2500C81499 /* Project object */;
+}
