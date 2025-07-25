@@ -2,33 +2,6 @@ import SwiftUI
 import MapKit
 import CoreLocation
 
-// MARK: - Map Bounds Extensions
-struct MapBounds {
-    let northEast: CLLocationCoordinate2D
-    let southWest: CLLocationCoordinate2D
-    
-    func contains(_ coordinate: CLLocationCoordinate2D) -> Bool {
-        return coordinate.latitude >= southWest.latitude &&
-               coordinate.latitude <= northEast.latitude &&
-               coordinate.longitude >= southWest.longitude &&
-               coordinate.longitude <= northEast.longitude
-    }
-}
-
-extension MKCoordinateRegion {
-    var bounds: MapBounds {
-        let northEast = CLLocationCoordinate2D(
-            latitude: center.latitude + span.latitudeDelta / 2,
-            longitude: center.longitude + span.longitudeDelta / 2
-        )
-        let southWest = CLLocationCoordinate2D(
-            latitude: center.latitude - span.latitudeDelta / 2,
-            longitude: center.longitude - span.longitudeDelta / 2
-        )
-        return MapBounds(northEast: northEast, southWest: southWest)
-    }
-}
-
 /// メイン画面 - 地図と自動販売機リストを表示
 struct VendingMachineMapScreenView: View {
     @StateObject private var viewModel = VendingMachineMapViewModel()
@@ -86,54 +59,12 @@ struct VendingMachineMapScreenView: View {
                 FilterToolbarView(viewModel: viewModel)
                 
                 // マップエリア (2/3)
-                ZStack {
-                    Map(position: $cameraPosition, interactionModes: .all) {
-                        // ユーザーの現在位置を表示
-                        if let currentLocation = locationService.currentLocation {
-                            Annotation("現在地", coordinate: currentLocation.coordinate) {
-                                Circle()
-                                    .fill(.blue)
-                                    .stroke(.white, lineWidth: 2)
-                                    .frame(width: 16, height: 16)
-                            }
-                        }
-                        
-                        // 自動販売機マーカーを表示
-                        ForEach(visibleVendingMachines) { vendingMachine in
-                            Annotation(vendingMachine.description, coordinate: vendingMachine.coordinate) {
-                                VendingMachineMarker(
-                                    machineType: vendingMachine.machineType,
-                                    operatingStatus: vendingMachine.operatingStatus,
-                                    onTap: {
-                                        viewModel.selectVendingMachine(vendingMachine)
-                                    }
-                                )
-                            }
-                        }
-                    }
-                    .onMapCameraChange { context in
-                        viewModel.mapRegion = context.region
-                    }
-                    .onTapGesture {
-                        // 簡単なテスト用 - マップの現在の中心位置を使用
-                        viewModel.handleMapLongPress(at: viewModel.mapRegion.center)
-                    }
-                    
-                    // 右下のアクションボタン
-                    VStack {
-                        Spacer()
-                        
-                        HStack {
-                            Spacer()
-                            
-                            VStack(spacing: 12) {
-                                NavigationButton(icon: "location", action: { viewModel.moveToCurrentLocation() })
-                                NavigationButton(icon: "camera.fill", action: { viewModel.showPhotoSelection() })
-                            }
-                            .padding()
-                        }
-                    }
-                }
+                MapSection(
+                    viewModel: viewModel,
+                    cameraPosition: $cameraPosition,
+                    locationService: locationService,
+                    visibleVendingMachines: visibleVendingMachines
+                )
                 .frame(height: (geometry.size.height - 120) * layoutRatios(for: geometry).mapRatio)
                 
                 // カードエリア
@@ -258,174 +189,173 @@ struct VendingMachineMapScreenView: View {
     }
 }
 
-// MARK: - Custom Views
-struct TopNavigationBar: View {
-    let onDrawerTap: () -> Void
+// MARK: - Map Section
+private struct MapSection: View {
+    @ObservedObject var viewModel: VendingMachineMapViewModel
+    @Binding var cameraPosition: MapCameraPosition
+    let locationService: LocationService
+    let visibleVendingMachines: [VendingMachine]
+    
+    @State private var isLongPressing = false
+    @State private var longPressLocation: CGPoint? = nil
+    @State private var longPressProgress: Double = 0.0
+    @State private var longPressTimer: Timer? = nil
+    @State private var delayTimer: Timer? = nil
+    @State private var initialLocation: CGPoint? = nil
+    @State private var isDragging = false
     
     var body: some View {
-        HStack {
-            NavigationButton(icon: "line.horizontal.3", action: onDrawerTap)
-            
-            Spacer()
-            
-            Text("自販機まっぷ")
-                .font(.headline)
-                .fontWeight(.semibold)
-            
-            Spacer()
-            
-            // 右側のスペーサー（バランスを保つため）
-            Color.clear
-                .frame(width: 44, height: 44)
-        }
-        .padding(.horizontal)
-        .padding(.vertical, 8)
-        .background(.regularMaterial)
-    }
-}
-
-struct NavigationButton: View {
-    let icon: String
-    let action: () -> Void
-    
-    var body: some View {
-        Button(action: action) {
-            Image(systemName: icon)
-                .foregroundColor(.primary)
-                .padding()
-                .background(.regularMaterial, in: Circle())
-        }
-    }
-}
-
-struct VendingMachineMarker: View {
-    let machineType: MachineType
-    let operatingStatus: OperatingStatus
-    let onTap: () -> Void
-    
-    var body: some View {
-        Button(action: onTap) {
-            Image(systemName: machineType.icon)
-                .font(.title2)
-                .foregroundColor(.white)
-                .padding(8)
-                .background(operatingStatus == .operating ? machineType.color : operatingStatus.color)
-                .clipShape(Circle())
-                .overlay(
-                    Circle()
-                        .stroke(.white, lineWidth: 2)
-                )
-        }
-        .buttonStyle(VendingMachineMarkerButtonStyle())
-        .accessibilityLabel("\(machineType.rawValue)の自動販売機")
-        .accessibilityHint("タップして詳細を表示")
-    }
-}
-
-struct VendingMachineMarkerButtonStyle: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .scaleEffect(configuration.isPressed ? 0.9 : 1.0)
-            .animation(.easeInOut(duration: 0.1), value: configuration.isPressed)
-    }
-}
-
-struct VendingMachineListSection: View {
-    let vendingMachines: [VendingMachine]
-    let currentLocation: CLLocation?
-    let onDelete: ((VendingMachine) -> Void)?
-    
-    var body: some View {
-        VStack(spacing: 0) {
-            // ヘッダー
-            VendingMachineListHeader(count: vendingMachines.count)
-            
-            // コンテンツエリア
-            if vendingMachines.isEmpty {
-                VendingMachineEmptyState()
-            } else {
-                VendingMachineList(
-                    vendingMachines: vendingMachines, 
-                    currentLocation: currentLocation,
-                    onDelete: onDelete
+        ZStack {
+            GeometryReader { geometry in
+                Map(position: $cameraPosition, interactionModes: .all) {
+                    // ユーザーの現在位置を表示
+                    if let currentLocation = locationService.currentLocation {
+                        Annotation("現在地", coordinate: currentLocation.coordinate) {
+                            Circle()
+                                .fill(.blue)
+                                .stroke(.white, lineWidth: 2)
+                                .frame(width: 16, height: 16)
+                        }
+                    }
+                    
+                    // 自動販売機マーカーを表示
+                    ForEach(visibleVendingMachines) { vendingMachine in
+                        Annotation(vendingMachine.description, coordinate: vendingMachine.coordinate) {
+                            VendingMachineMarker(
+                                machineType: vendingMachine.machineType,
+                                operatingStatus: vendingMachine.operatingStatus,
+                                onTap: {
+                                    viewModel.selectVendingMachine(vendingMachine)
+                                }
+                            )
+                        }
+                    }
+                }
+                .onMapCameraChange { context in
+                    viewModel.mapRegion = context.region
+                }
+                .simultaneousGesture(
+                    DragGesture(minimumDistance: 0)
+                        .onChanged { value in
+                            handleGestureChanged(value: value, geometry: geometry)
+                        }
+                        .onEnded { _ in
+                            handleGestureEnded()
+                        }
                 )
             }
-        }
-        .background(.thinMaterial)
-    }
-}
-
-struct BackgroundBlurView: UIViewRepresentable {
-    func makeUIView(context: Context) -> UIVisualEffectView {
-        let view = UIVisualEffectView(effect: UIBlurEffect(style: .systemMaterial))
-        return view
-    }
-    
-    func updateUIView(_ uiView: UIVisualEffectView, context: Context) {}
-}
-
-struct VendingMachineListHeader: View {
-    let count: Int
-    
-    var body: some View {
-        HStack {
-            Text("マップ上の自動販売機")
-                .font(.headline)
-                .fontWeight(.semibold)
             
-            Spacer()
+            // 長押しエフェクトを表示
+            if isLongPressing, let location = longPressLocation {
+                LongPressEffectView(
+                    location: location,
+                    progress: longPressProgress
+                )
+                .allowsHitTesting(false)
+            }
             
-            Text("\(count)件")
-                .font(.caption)
-                .foregroundColor(.secondary)
-                .padding(.horizontal, 8)
-                .padding(.vertical, 4)
-                .background(.secondary.opacity(0.1))
-                .clipShape(Capsule())
-        }
-        .padding(.horizontal)
-        .padding(.vertical, 12)
-        .background(.thickMaterial)
-    }
-}
-
-struct VendingMachineEmptyState: View {
-    var body: some View {
-        VStack(spacing: 16) {
-            Image(systemName: "rectangle.grid.2x2.slash")
-                .font(.system(size: 40))
-                .foregroundColor(.gray)
-            
-            Text("マップ上に自動販売機がありません")
-                .font(.subheadline)
-                .foregroundColor(.secondary)
-                .multilineTextAlignment(.center)
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(.clear)
-    }
-}
-
-struct VendingMachineList: View {
-    let vendingMachines: [VendingMachine]
-    let currentLocation: CLLocation?
-    let onDelete: ((VendingMachine) -> Void)?
-    
-    var body: some View {
-        ScrollView {
-            LazyVStack(spacing: 8) {
-                ForEach(vendingMachines) { vendingMachine in
-                    VendingMachineCardView(
-                        vendingMachine: vendingMachine,
-                        currentLocation: currentLocation,
-                        onDelete: onDelete
-                    )
-                    .padding(.horizontal)
+            // 右下のアクションボタン
+            VStack {
+                Spacer()
+                
+                HStack {
+                    Spacer()
+                    
+                    VStack(spacing: 12) {
+                        NavigationButton(icon: "location", action: { viewModel.moveToCurrentLocation() })
+                        NavigationButton(icon: "camera.fill", action: { viewModel.showPhotoSelection() })
+                    }
+                    .padding()
                 }
             }
-            .padding(.vertical, 8)
         }
-        .background(.clear)
+    }
+    
+    // MARK: - Gesture Handlers
+    
+    private func handleGestureChanged(value: DragGesture.Value, geometry: GeometryProxy) {
+        let location = value.location
+        let translation = value.translation
+        let dragDistance = sqrt(pow(translation.width, 2) + pow(translation.height, 2))
+        
+        if initialLocation == nil {
+            // 初回タッチ
+            initialLocation = location
+            isDragging = false
+            
+            // 遅延タイマー開始（0.5秒後に長押し判定開始）
+            delayTimer?.invalidate()
+            delayTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
+                if !isDragging && initialLocation != nil {
+                    // ドラッグしていなければ長押し開始
+                    startLongPressAnimation(at: location, in: geometry)
+                }
+            }
+        } else if dragDistance > 10 {
+            // 10ピクセル以上移動したらドラッグと判定
+            isDragging = true
+            cancelAllTimers()
+        }
+    }
+    
+    private func handleGestureEnded() {
+        initialLocation = nil
+        isDragging = false
+        cancelAllTimers()
+    }
+    
+    private func startLongPressAnimation(at location: CGPoint, in geometry: GeometryProxy) {
+        isLongPressing = true
+        longPressLocation = location
+        longPressProgress = 0.0
+        
+        // タイマーを開始してプログレスを更新（0.5秒で完了）
+        longPressTimer?.invalidate()
+        longPressTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { timer in
+            longPressProgress += 0.02  // 0.5秒で完了するように調整
+            
+            if longPressProgress >= 1.0 {
+                // 長押し完了
+                timer.invalidate()
+                completeLongPress(at: location, in: geometry)
+            }
+        }
+    }
+    
+    private func cancelAllTimers() {
+        delayTimer?.invalidate()
+        delayTimer = nil
+        longPressTimer?.invalidate()
+        longPressTimer = nil
+        
+        withAnimation(.easeOut(duration: 0.2)) {
+            isLongPressing = false
+            longPressLocation = nil
+            longPressProgress = 0.0
+        }
+    }
+    
+    private func completeLongPress(at location: CGPoint, in geometry: GeometryProxy) {
+        // 振動フィードバック
+        let impact = UIImpactFeedbackGenerator(style: .medium)
+        impact.impactOccurred()
+        
+        // マップ座標に変換
+        let mapRect = CGRect(x: 0, y: 0, width: geometry.size.width, height: geometry.size.height)
+        let normalizedX = location.x / mapRect.width
+        let normalizedY = location.y / mapRect.height
+        
+        let region = viewModel.mapRegion
+        let latitude = region.center.latitude + region.span.latitudeDelta * (0.5 - normalizedY)
+        let longitude = region.center.longitude + region.span.longitudeDelta * (normalizedX - 0.5)
+        
+        let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        
+        // リセット
+        cancelAllTimers()
+        
+        // 自動販売機追加ダイアログを表示
+        viewModel.handleMapLongPress(at: coordinate)
     }
 }
 
